@@ -71,6 +71,7 @@ void parseFile(
   var AU = [];
   var PY = [];
   var T1 = [];
+  var TI = [];
   var T2 = [];
   var JF = [];
   var SP = [];
@@ -89,6 +90,11 @@ void parseFile(
           break;
         }
       case 'T1':
+        {
+          T1.add(entry.value);
+          break;
+        }
+      case 'TI':
         {
           T1.add(entry.value);
           break;
@@ -126,8 +132,12 @@ void parseFile(
     return '${date.day}/${date.month}/${date.year}';
   }
 
+  ///Account for misusages of .ris format
   if (T2.isEmpty) {
     T2 = JF;
+  }
+  if (T1.isEmpty) {
+    T1 = TI;
   }
   var result;
   if (inline == false) {
