@@ -1,3 +1,7 @@
+# 1.0.9
+add .history to .gitignore
+first commit
+
 # 1.0.8
 # 1.0.7
 # 1.0.6
